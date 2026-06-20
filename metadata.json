@@ -1,0 +1,6 @@
+{
+  "name": "7-Day English Speaking Daily Trainer",
+  "description": "An interactive, structured speaking drill planner and calendar for mastering English flow, accent shadowing, instant patterns, and speech-under-pressure challenges.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
