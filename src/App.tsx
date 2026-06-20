@@ -16,7 +16,8 @@ import {
   RotateCcw,
   Sparkles,
   Smile,
-  Mic
+  Mic,
+  Flame
 } from 'lucide-react';
 import { DAYS_DATA, SCHEDULE_TEMPLATES, FILLER_PHRASES_DATA } from './data';
 import { ActiveTab, DailyProgress } from './types';
@@ -28,6 +29,7 @@ import PatternReviewer from './components/PatternReviewer';
 import SentenceExpansionWidget from './components/SentenceExpansionWidget';
 import PressureSpeakingSim from './components/PressureSpeakingSim';
 import VoiceRecorderWidget from './components/VoiceRecorderWidget';
+import SpecialFluencyDrills from './components/SpecialFluencyDrills';
 
 export default function App() {
   // 1. Core State
@@ -361,13 +363,14 @@ export default function App() {
         <div className="flex bg-white p-1 rounded-2xl border border-gray-200 overflow-x-auto shadow-sm" id="navigation-tabs">
           {[
             { id: 'schedule', label: '15-Step Kunlik Jadval', icon: Calendar },
+            { id: 'drills', label: '🔥 Special Fluency Drills', icon: Flame },
             { id: 'vocabulary', label: 'Day Vocabulary Upgrade', icon: BookOpen },
             { id: 'patterns', label: 'Pattern Training', icon: Sliders },
             { id: 'expansion', label: 'Sentence Expansion', icon: Compass },
             { id: 'pressure', label: 'Speaking Under Pressure', icon: Cpu },
             { id: 'recorder', label: 'Voice Record Audit', icon: Mic }
           ].map((t) => {
-            const Icon = t.icon;
+            const Icon = t.id === 'drills' ? Sparkles : t.icon; // Flame / Sparkles or dynamic Icon
             const isTabActive = activeTab === t.id;
             
             return (
@@ -447,6 +450,12 @@ export default function App() {
                   alert("Voice records audit targets saved successfully! Drill completed!");
                 }}
               />
+            </div>
+          )}
+
+          {activeTab === 'drills' && (
+            <div className="animate-fade-in animate-duration-300">
+              <SpecialFluencyDrills />
             </div>
           )}
         </div>

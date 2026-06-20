@@ -55,4 +55,4 @@ export interface DailyProgress {
   pressureAnswersCount: number;
 }
 
-export type ActiveTab = 'schedule' | 'vocabulary' | 'patterns' | 'expansion' | 'pressure' | 'recorder';
+export type ActiveTab = 'schedule' | 'vocabulary' | 'patterns' | 'expansion' | 'pressure' | 'recorder' | 'drills';
